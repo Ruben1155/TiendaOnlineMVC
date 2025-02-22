@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TiendaOnlineMVC.Models.Producto>
+
+<h2>Lista de Productos</h2>
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create")">Crear Nuevo Producto</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model)
+        {
+            <tr>
+                <td>@producto.Nombre</td>
+                <td>@producto.Descripcion</td>
+                <td>@producto.Precio</td>
+                <td>@producto.Stock</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = producto.Id })">Editar</a> |
+                    <a href="@Url.Action("Delete", new { id = producto.Id })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
